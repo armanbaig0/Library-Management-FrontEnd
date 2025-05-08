@@ -57,7 +57,7 @@ const Notifications = () => {
                     <>
                     <button
                       onClick={() => setIsModalOpen(true)}
-                      className="bg-blue-500 hover:bg-blue-600 text-white cursor-pointer py-1 px-3 rounded-md text-sm"
+                      className="bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 hover:shadow-lg text-white cursor-pointer py-1 px-3 rounded-md text-sm"
                     >
                       View 
                     </button>
