@@ -25,5 +25,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/Student/:path*'],  // Apply middleware only on these routes
+  matcher: ['/Student/:path*', '/Admin/:path*'],  // Apply middleware only on these routes
 };

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ManageBooks from './ManageBooks';
 import HandleRequest from './HandleRequest';
 import Link from 'next/link';
+import LogOut from '../Student/LogOut';
 
 
 
@@ -20,6 +21,9 @@ export default function AdminDashboard() {
           </svg>
         </button>
         <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
+      
+      <LogOut />
+
       </nav>
 
       <div className="flex flex-1">
