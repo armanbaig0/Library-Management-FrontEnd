@@ -18,7 +18,7 @@ const initialValues = {
 export default function Login() {
   // using remember me 
   const [rememberMe, setRememberMe] = useState(false);
-  const [selectedRole, setSelectedRole] = useState("Admin");
+  
   const [loginError, setLoginError] = useState("");
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit, setFieldValue } = useFormik({
@@ -27,7 +27,7 @@ export default function Login() {
     onSubmit: async (values) => {
       setLoginError("");
       try {
-        const response = await fetchLogin(values.email, values.password, selectedRole);
+        const response = await fetchLogin(values.email, values.password,);
 
         // Store token in localStorage
         if (response.token) {
@@ -57,7 +57,7 @@ export default function Login() {
             localStorage.removeItem("rememberedPassword");
           }
 
-          if (selectedRole === "Admin") {
+          if (response.role === "Admin") {
             window.location.href = "/Admin";
           } else {
             window.location.href = "/Student";
@@ -145,16 +145,7 @@ export default function Login() {
                 <label htmlFor="remember-me" className="text-sm text-gray-700">Remember me</label>
               </div>
 
-              <label htmlFor="role" className="text-sm text-gray-700">Switch to</label>
-              <select className="text-sm text-gray-700"
-                id="role"
-                value={selectedRole}
-                name="role"
-                onChange={(e) => setSelectedRole(e.target.value)} >
-                <option value="Admin" className="text-sm text-gray-700">Admin</option>
-                <option value="Student" className="text-sm text-gray-700">Student</option>
-              </select>
-
+              
               <a href="/ForgotPassword" className="text-sm text-gray-700 hover:underline">Forgot Password?</a>
             </div>
 

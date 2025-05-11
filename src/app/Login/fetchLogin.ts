@@ -6,7 +6,7 @@ interface LoginResponse {
     token?: string;
 }
 
-export const fetchLogin = async (email: string, password: string, role: string): Promise<LoginResponse> => {
+export const fetchLogin = async (email: string, password: string, ): Promise<LoginResponse> => {
     try {
         const response = await fetch("http://localhost:5000/user/login", {
             method: "POST",
@@ -16,7 +16,6 @@ export const fetchLogin = async (email: string, password: string, role: string):
             body: JSON.stringify({
                 email: email,
                 password: password,
-                role : role,
             }),
         });
 
