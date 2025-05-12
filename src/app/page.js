@@ -6,8 +6,9 @@ export default function Home() {
  const dispatch = useDispatch();
  const theme = useSelector((state) => state.theme.mode);
   return (
-    <>
-    <div
+    
+    <main className="min-h-screen"
+    
       style={{
         background: theme === 'light' ? '#fff' : '#333',
         color: theme === 'light' ? '#000' : '#fff',
@@ -19,7 +20,8 @@ export default function Home() {
         className="border  ">
         Theme 
       </button>
-      </div>
-    </>
+      
+      </main>
+    
       );
 }

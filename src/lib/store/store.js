@@ -5,10 +5,12 @@
 
 import { configureStore } from '@reduxjs/toolkit'
 import themeReducer from '../features/theme/themeSlice'
+import addBookReducer from '../features/addBooks/addBookSlice'
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
+    addBook : addBookReducer,
   },
 });
 

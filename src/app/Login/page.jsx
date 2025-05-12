@@ -90,6 +90,7 @@ export default function Login() {
       <div className="flex w-full max-w-3xl md:flex-row rounded-lg shadow-xl">
         {/* Login Form */}
         <div className="p-2 bg-gradient-to-br from-gray-50 to-gray-200 w-full rounded-lg">
+        
           <h2 className="text-2xl p-2 font-bold mb-6 text-center text-gray-800">Login Below</h2>
 
           <form className="space-y-4" onSubmit={handleSubmit}>
@@ -168,6 +169,7 @@ export default function Login() {
               <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" />
               <span>Continue with Google</span>
             </button>
+
 
           </form>
         </div>
