@@ -6,7 +6,7 @@ import LoginSchema from './loginSchema';
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Cookies from 'js-cookie' 
-
+import Loader from '@/app/components/Loader/Loader';
 
 {/* Yup Validation */}
 const initialValues = {
@@ -17,15 +17,18 @@ const initialValues = {
 {/* Formik Validation */}
 export default function Login() {
   // using remember me 
-  const [rememberMe, setRememberMe] = useState(false);
-  
+  const [rememberMe, setRememberMe] = useState(false);  
   const [loginError, setLoginError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit, setFieldValue } = useFormik({
     initialValues: initialValues,
     validationSchema: LoginSchema,
+
     onSubmit: async (values) => {
       setLoginError("");
+      setIsLoading(true);
+
       try {
         const response = await fetchLogin(values.email, values.password,);
 
@@ -70,6 +73,7 @@ export default function Login() {
       } catch (error) {
         setLoginError(error.message);
       }
+      setIsLoading(false);
     },
   });
 
@@ -153,7 +157,17 @@ export default function Login() {
             {/* Login Button */}
             <button type="submit"
               className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition duration-300 cursor-pointer"
-            >Login
+              disabled={isLoading}
+            >
+              {isLoading ?(
+                <>
+                <span className="flex items-center justify-center">
+                  <Loader />
+                </span> 
+                </>
+              ):(
+                "Login"
+              )}
             </button>
 
             {/* OR Divider */}
@@ -165,11 +179,10 @@ export default function Login() {
 
             {/* Continue with google */}
             <button type="button"
-              className="w-full border border-gray-300 hover:bg-gray-100 text-gray-700 font-semibold rounded-lg flex items-center justify-center space-x-2 transition duration-300 cursor-pointer">
+              className="w-full animate-pulse border border-gray-300 hover:bg-gray-100 text-gray-700 font-semibold rounded-lg flex items-center justify-center space-x-2 transition duration-300 cursor-pointer">
               <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" />
               <span>Continue with Google</span>
             </button>
-
 
           </form>
         </div>
