@@ -2,6 +2,7 @@
 import { useState } from "react";
 import ManageBooks from "./ManageBooks";
 import HandleRequest from "./HandleRequest";
+import StudentForm from "./StudentForm";
 import Link from "next/link";
 import LogOut from "../Student/LogOut";
 
@@ -69,6 +70,15 @@ export default function AdminDashboard() {
                 Requests
               </Link>
             </li>
+            <li>
+              <Link
+                href="#"
+                className="block p-2 rounded shadow-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 hover:shadow-lg text-center text-white font-bold"
+                onClick={() => setActiveTab("Student Form")}
+              >
+                Student Form
+              </Link>
+            </li>
           </ul>
         </aside>
 
@@ -83,6 +93,7 @@ export default function AdminDashboard() {
           {/* Conditional Rendering based on Active Tab */}
           {activeTab === "Books" && <ManageBooks />}
           {activeTab === "Requests" && <HandleRequest />}
+          {activeTab === "Student Form" && <StudentForm />}
         </main>
       </div>
     </div>

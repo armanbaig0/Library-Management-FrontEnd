@@ -41,6 +41,7 @@ export default function Login() {
           Cookies.set('role', response.role, { path: '/' });
           Cookies.set('userId', response.user.id, { path: '/' });
           Cookies.set('userFullname', response.user.fullname, { path: '/' });
+          Cookies.set('cnic', response.user.cnic, { path: '/' });
           await Swal.fire({
             toast: true,
             position: 'top-end',    // top-right corner

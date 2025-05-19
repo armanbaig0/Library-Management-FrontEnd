@@ -4,6 +4,7 @@ import AvailableBooks from './AvailableBooks';
 import Notifications from './Notifications';
 import Link from 'next/link';
 import LogOut from './LogOut';
+import FormByAdmin from './FormByAdmin';
 
 
 export default function StudentDashBoard() {
@@ -38,6 +39,11 @@ export default function StudentDashBoard() {
               className="block p-2 rounded shadow-xl text-center bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold hover:scale-105 hover:shadow-lg"
               onClick={() => setActiveTab('Notifications')}>Notifications</a>
             </li> 
+            <li>
+              <Link href="#" 
+                 className="block p-2 rounded shadow-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 hover:shadow-lg text-center text-white font-bold"
+                 onClick={() => setActiveTab('Form')}>Forms</Link>
+            </li>
           </ul>
         </aside>
 
@@ -49,6 +55,7 @@ export default function StudentDashBoard() {
           {/* Conditional Rendering based on Active Tab */}
           {activeTab === 'Available Books' && <AvailableBooks />}
           {activeTab === 'Notifications' && <Notifications />}
+          {activeTab === 'Form' && <FormByAdmin />}
           
           {/* {activeTab === 'Make a Request' && <MakeRequest />} */}
         </main>
