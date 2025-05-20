@@ -76,17 +76,67 @@ const FormByAdmin = () => {
   };
 
   // Dummy submit handler (prevent default)
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  // Ensure formFields have value (set to "N/A" if missing)
+  const updatedFormFields = formFields.map((field) => ({
+    label: field.label,
+    value: field.value && field.value.trim() !== "" ? field.value.trim() : "N/A",
+  }));
+
+  // Ensure extraFields have value (already handled above)
+  const updatedExtraFields = extraFields.map((field) => ({
+    label: field.label,
+    value: field.value && field.value.trim() !== "" ? field.value.trim() : "N/A",
+  }));
+
+  // Combine updated fields
+  const allFields = [...updatedFormFields, ...updatedExtraFields];
+
+  // Convert to key-value object
+  const formData = {};
+  allFields.forEach((field) => {
+    formData[field.label] = field.value;
+  });
+
+  try {
+    const res = await fetch("http://localhost:5000/student/submit-Form", {
+      method: "POST",
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await res.json();
+
+    if (res.ok) {
+      Swal.fire({
+        icon: "success",
+        title: "Form Submitted Successfully",
+        toast: true,
+        position: "top-end",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+    } else {
+      throw new Error(result.message || "Form submission failed");
+    }
+  } catch (error) {
+    console.error("Submit error:", error);
     Swal.fire({
-      icon: "info",
-      title: "Submit functionality not implemented yet",
+      icon: "error",
+      title: "Failed to submit form",
+      text: error.message,
       toast: true,
       position: "top-end",
-      timer: 2000,
+      timer: 3000,
       showConfirmButton: false,
     });
-  };
+  }
+};
 
   return (
     <form
