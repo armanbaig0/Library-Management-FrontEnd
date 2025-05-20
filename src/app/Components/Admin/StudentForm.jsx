@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { formfield } from "../../utils/fields";
+import Swal from "sweetalert2";
 
 const StudentForm = () => {
   const [selected, setSelected] = useState([]);
@@ -16,10 +17,9 @@ const StudentForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Create payload to send to backend
     const payload = {
-      label: 'Student Form', // ya admin form ka koi label dynamically bhejo
-      fields: selected.map(fieldName => ({ label: fieldName }))
+      label: 'Student Form',
+      selectedFields: selected, // send selected field names as array
     };
 
     try {
@@ -31,8 +31,17 @@ const StudentForm = () => {
 
       if (!res.ok) throw new Error('Failed to save form');
 
-      alert('Form saved successfully!');
-      setSelected([]); // clear selection if you want
+      await Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: 'success',
+        title: 'Form Saved Successfully',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      });
+
+      setSelected([]);
     } catch (error) {
       alert('Error: ' + error.message);
     }
@@ -40,9 +49,9 @@ const StudentForm = () => {
 
   return (
     <form className="bg-white" onSubmit={handleSubmit}>
-      <h2 className="font-bold">Select Fields For Students</h2>
+      <h2 className="font-bold mb-2">Select Fields For Students</h2>
       {formfield.map((field) => (
-        <div key={field.name}>
+        <div key={field.name} className="mb-1">
           <label>
             <input
               type="checkbox"
@@ -57,7 +66,7 @@ const StudentForm = () => {
       ))}
       <button
         type="submit"
-        className="bg-blue-600 cursor-pointer hover:scale-105 text-white px-4 py-2 rounded"
+        className="bg-blue-600 cursor-pointer hover:scale-105 text-white px-4 py-2 rounded mt-3"
       >
         Send to Students
       </button>
