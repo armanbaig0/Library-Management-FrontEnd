@@ -1,15 +1,24 @@
 "use client";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AvailableBooks from './AvailableBooks';
 import Notifications from './Notifications';
 import Link from 'next/link';
 import LogOut from './LogOut';
 import FormByAdmin from './FormByAdmin';
+import Cookies from 'js-cookie'
 
 
 export default function StudentDashBoard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('');
+  const [studentName, setStudentName] = useState('');
+
+  useEffect(() =>{
+    const name = Cookies.get('userFullname');
+    if(name){
+      setStudentName(name)
+    }
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
@@ -49,7 +58,7 @@ export default function StudentDashBoard() {
 
         {/* Main Content */}
         <main className="flex-1 p-6">
-        <h2 className="text-xl font-semibold mb-4">Welcome Student </h2>
+        <h2 className="text-xl font-semibold mb-4">Welcome {studentName} </h2>
           <h1 className='text-xl font-semibold lg:hidden mb-4'> Please Select From Side Bar</h1>
 
           {/* Conditional Rendering based on Active Tab */}

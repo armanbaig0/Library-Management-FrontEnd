@@ -1,6 +1,7 @@
 
 export const signupUser = async (formData: {
     fullname: string;
+    cnic: string;
     email: string;
     password: string;
   }) => {

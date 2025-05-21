@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 {/* Yup Validation using Schema */}
 const initialValues ={
        fullname: "",
+       cnic: "",
        email:"",
        password: "",
        confirm_password: "",
@@ -27,6 +28,7 @@ export default function SignUp (){
                   try{
                     const res = await signupUser({
                             fullname: values.fullname,
+                            cnic: values.cnic,
                             email: values.email,
                             password: values.password,
                      });
@@ -89,7 +91,26 @@ console.log(errors);
                      { errors.fullname && touched.fullname ? (
                             <p className="form-error text-red-500 text-sm mt-1">{errors.fullname}</p>
                      ) :null}
+               </div>
 
+               {/* Div for Getting Cnic */}
+               <div className="">
+                   <label htmlFor="cnic"
+                          className=" block text-gray-700 font-medium mb-1">Cnic</label>
+                   <input type="text" 
+                          id="cnic" 
+                          name="cnic"
+                          placeholder="12304-1234567-1"
+                          autoComplete="off"
+                          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 
+                          focus:ring-blue-400"
+                          value={values.cnic}
+                          onChange={handleChange}
+                          onBlur={handleBlur}/>
+
+                      { errors.cnic && touched.cnic ? (
+                            <p className="form-error text-red-500 text-sm mt-1">{errors.cnic}</p>
+                     ) :null}    
                </div>
 
                {/* Div for Getting Email */}

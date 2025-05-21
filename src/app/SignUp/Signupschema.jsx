@@ -2,7 +2,8 @@ import * as Yup from "yup"; // importing all the data from yup using * and givin
  // now we have all the data from form in Yup 
 
 export  const signUpSchema = Yup.object ({
-    fullname: Yup.string().min(8).max(12).required(" * Name is required"),
+    fullname: Yup.string().min(8).max(16).required(" * Name is required"),
+    cnic: Yup.string().min(15).max(15).required(" * Cnic is required"),
     email: Yup.string().email("*email must be a valid email").required("* Email is Requireed"),
     password: Yup.string().min(8,'* Password must be 8 characters').required("* Password is Required"),
     confirm_password: Yup.string().required("* This is Required").oneOf([Yup.ref('password'), null], "* Password must match"),
