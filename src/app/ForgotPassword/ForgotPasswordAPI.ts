@@ -10,7 +10,7 @@ export const forgotPassword = async (email: string,) => {
      
   } catch (error: unknown) {
     if (error instanceof Error) {
-            console.error("Otp error:", error);
+            console.error("Forgot Passsword Error:", error);
             throw new Error(error.message || "Something went wrong. Please try again.");
         } else {
             console.error("Unexpected error:", error);
