@@ -11,7 +11,7 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("");
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
+    <div className=" w-screen min-h-screen flex flex-col bg-gray-100">
       {/* Navbar */}
       <nav className="shadow p-8 bg-gradient-to-r from-blue-500 to-purple-500 flex justify-between items-center">
         <div>
@@ -83,7 +83,7 @@ export default function AdminDashboard() {
         </aside>
 
         {/* Main Content */}
-        <main className="px-2 w-auto flex-1 p-6">
+        <main className="px-2 flex-1 p-6">
           <h2 className="text-xl font-semibold mb-4">Welcome Admin </h2>
           <h1 className="text-xl font-semibold lg:hidden mb-4">
             {" "}
