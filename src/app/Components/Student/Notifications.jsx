@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Cookies from 'js-cookie';
 
 const Notifications = () => {
   const [notifications, setNotifications] = useState([]);
@@ -12,7 +13,7 @@ const Notifications = () => {
 
   const fetchNotifications = async () => {
     try {
-      const studentName = 'Student';  
+      const studentName = Cookies.get('userFullname');  
       const response = await axios.get('http://localhost:5000/student/request-status', {
         params: { student_name: studentName }
       });

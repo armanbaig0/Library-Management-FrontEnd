@@ -12,7 +12,9 @@ const FormByAdmin = () => {
   useEffect(() => {
     const fetchForm = async () => {
       try {
-        const res = await fetch("http://localhost:5000/student/get-Form");
+        const res = await fetch("http://localhost:5000/student/get-Form",{
+          credentials: "include"
+        });
         if (!res.ok) {
           throw new Error("Failed to fetch form");
         }

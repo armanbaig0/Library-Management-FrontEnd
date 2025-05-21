@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Cookies from 'js-cookie';
 
 const PaginationUI = ({ books, onBooksUpdate }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [bookRequests, setBookRequests] = useState({});
   const [requestStatuses, setRequestStatuses] = useState([]);
   const booksPerPage = 10;
-  const studentName = "Student"; // Replace with actual student name from auth
+  const studentName = Cookies.get('userFullname'); // Replace with actual student name from auth
 
   const totalPages = Math.ceil(books.length / booksPerPage);
 

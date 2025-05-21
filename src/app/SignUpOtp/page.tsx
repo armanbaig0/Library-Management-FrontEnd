@@ -1,9 +1,11 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from 'formik';
 import { verifyOtp } from "./fetchapi";
 import otpSchema from "./SendOtpSchema";
 import { useRouter } from "next/navigation";
+import Loader from '../Components/Loader/Loader';
+import Image from 'next/image';
 
 {/* Yup Validation */ }
 const initialValues = {
@@ -11,12 +13,16 @@ const initialValues = {
 };
 
 export default function OTP() {
+    const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         // declaring two variables initialvalues for Formik and validationSchema for Yup  
         initialValues: initialValues,
         validationSchema: otpSchema,
         onSubmit: async (values) => {  // callback function passing argument "values"
+            
+            setIsLoading(true);
+
             const email = localStorage.getItem("SignupEmail")
             if(!email){
                 alert("Email not found in local storage.");
@@ -40,6 +46,7 @@ export default function OTP() {
                   alert("Something went wrong");
                 }
               }
+              setIsLoading(false);
         },
     });
 
@@ -78,7 +85,15 @@ export default function OTP() {
                         <button type="submit"
                             className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 
                          rounded-lg transition duration-300 cursor-pointer"
-                        >Verify
+                         disabled = {isLoading}
+                        > 
+                        {isLoading ?(
+                            <>
+                            <span className="flex items-center justify-center">
+                            <Loader />
+                            </span> 
+                            </>
+                        ):("Verify")}
                         </button>
 
                     </form>
@@ -87,8 +102,7 @@ export default function OTP() {
 
                 {/* Side Image */}
                 <div className="hidden md:block w-xl p-2">
-                    <img src="/Pexels.jpg"
-                        className="w-fit rounded-lg" />
+                    <Image src="/Pexels.jpg" alt="Pexels" width={500} height={400} className="w-fit rounded-lg" />
                 </div>
             </div>
         </div>
