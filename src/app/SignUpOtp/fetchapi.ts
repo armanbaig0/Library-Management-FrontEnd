@@ -8,10 +8,13 @@ export const verifyOtp = async (email: string, otp: string) => {
       otp,
     });
     return response.data; // { success: true, msg: "User Verified Successfully" }
-  } catch (error: any) {
-    console.error("OTP verification error:", error);
-    throw new Error(
-      error.response?.data?.msg || "An error occurred while verifying OTP."
-    );
+  } catch (error: unknown) {
+   if (error instanceof Error) {
+            console.error("OTP error:", error);
+            throw new Error(error.message || "Something went wrong. Please try again.");
+        } else {
+            console.error("Unexpected error:", error);
+            throw new Error("Something went wrong. Please try again.");
+        }
   }
 };

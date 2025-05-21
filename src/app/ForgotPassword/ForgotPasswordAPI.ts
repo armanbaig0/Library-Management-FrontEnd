@@ -8,10 +8,13 @@ export const forgotPassword = async (email: string,) => {
 
     return response.data;
      
-  } catch (error: any) {
-    console.error("Email Verification Error:", error);
-    throw new Error(
-      error.response?.data?.msg || "An error occurred while verifying Email."
-    );
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+            console.error("Otp error:", error);
+            throw new Error(error.message || "Something went wrong. Please try again.");
+        } else {
+            console.error("Unexpected error:", error);
+            throw new Error("Something went wrong. Please try again.");
+        }
   }
 };
