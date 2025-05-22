@@ -1,4 +1,4 @@
-import StudentDashBoard from "../Components/Student/StudentDashBoard"
+import StudentDashBoard from "@/Components/Student/StudentDashBoard"
 
 const Student = () => {
   return (

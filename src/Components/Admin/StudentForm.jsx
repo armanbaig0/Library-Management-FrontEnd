@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { formfield } from "../../utils/fields";
+import { formfield } from "../../app/utils/fields";
 import Swal from "sweetalert2";
 
 const StudentForm = () => {

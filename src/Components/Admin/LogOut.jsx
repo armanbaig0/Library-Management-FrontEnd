@@ -15,8 +15,8 @@ const AdminLogOut = () => {
         Cookies.remove('role');
         Cookies.remove('userId');
         Cookies.remove('userFullname');
-        Cookies.remove('cnic')
-      router.push('/Login');            // redirect to login page
+        Cookies.remove('cnic');
+        router.push('/Login');            // redirect to login page
     } catch (error) {
       console.error('Logout failed:', error);
     }

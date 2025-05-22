@@ -6,7 +6,7 @@ import LoginSchema from './loginSchema';
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Cookies from 'js-cookie' 
-import Loader from '../Components/Loader/Loader';
+import Loader from '../../Components/Loader/Loader';
 
 {/* Yup Validation */}
 const initialValues = {
