@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 import { formfield } from "../../utils/fields";
@@ -18,24 +18,24 @@ const StudentForm = () => {
     e.preventDefault();
 
     const payload = {
-      label: 'Student Form',
+      label: "Student Form",
       selectedFields: selected, // send selected field names as array
     };
 
     try {
-      const res = await fetch('http://localhost:5000/admin/make-Form', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+      const res = await fetch("http://localhost:5000/admin/make-Form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
-      if (!res.ok) throw new Error('Failed to save form');
+      if (!res.ok) throw new Error("Failed to save form");
 
       await Swal.fire({
         toast: true,
-        position: 'top-end',
-        icon: 'success',
-        title: 'Form Saved Successfully',
+        position: "top-end",
+        icon: "success",
+        title: "Form Saved Successfully",
         showConfirmButton: false,
         timer: 2000,
         timerProgressBar: true,
@@ -43,34 +43,47 @@ const StudentForm = () => {
 
       setSelected([]);
     } catch (error) {
-      alert('Error: ' + error.message);
+      alert("Error: " + error.message);
     }
   };
 
   return (
-    <form className="bg-white" onSubmit={handleSubmit}>
-      <h2 className="font-bold mb-2">Select Fields For Students</h2>
-      {formfield.map((field) => (
-        <div key={field.name} className="mb-1">
-          <label>
-            <input
-              type="checkbox"
-              name={field.name}
-              checked={selected.includes(field.name)}
-              onChange={handleCheckBox}
-              className="mr-2 cursor-pointer"
-            />
-            {field.label}
-          </label>
+    <div className="">
+      <div className="flex justify-center items-center">
+        <h2 className="font-bold mb-2 text-center">
+          Select Fields For Students
+        </h2>
+      </div>
+
+      <form className="bg-white" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+          {formfield.map((field) => (
+            <div key={field.name} className="mb-1 flex items-center space-x-2">
+              <label>
+                <input
+                  type="checkbox"
+                  name={field.name}
+                  checked={selected.includes(field.name)}
+                  onChange={handleCheckBox}
+                  className="mr-2 cursor-pointer"
+                />
+                {field.label}
+              </label>
+            </div>
+          ))}
         </div>
-      ))}
-      <button
-        type="submit"
-        className="bg-blue-600 cursor-pointer hover:scale-105 text-white px-4 py-2 rounded mt-3"
-      >
-        Send to Students
-      </button>
-    </form>
+        
+        <div className="flex justify-center items-center">
+        <button
+          type="submit"
+          className="bg-blue-600 cursor-pointer hover:scale-105 text-white px-4 py-2 rounded mt-3 "
+        >
+          Send to Students
+        </button>
+        </div>
+
+      </form>
+    </div>
   );
 };
 
