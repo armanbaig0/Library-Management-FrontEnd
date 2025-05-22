@@ -55,7 +55,12 @@ export default function AdminDashboard() {
             <li>
               <Link
                 href="#"
-                className="block p-2 rounded shadow-xl bg-gradient-to-r from-blue-500 to-purple-500 text-center hover:scale-105 hover:shadow-lg text-white font-bold"
+                className={`block p-2 rounded shadow-xl text-center font-bold transition transform
+                ${
+                activeTab === "Books"
+                ? "scale-105 bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                : "bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 hover:shadow-lg text-white"
+                }`}
                 onClick={() => setActiveTab("Books")}
               >
                 Books
@@ -64,7 +69,12 @@ export default function AdminDashboard() {
             <li>
               <Link
                 href="#"
-                className="block p-2 rounded shadow-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 hover:shadow-lg text-center text-white font-bold"
+                className={`block p-2 rounded shadow-xl text-center font-bold transition transform
+                ${
+                activeTab === "Requests"
+                ? "scale-105 bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                : "bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 hover:shadow-lg text-white"
+                }`}
                 onClick={() => setActiveTab("Requests")}
               >
                 Requests
@@ -73,7 +83,12 @@ export default function AdminDashboard() {
             <li>
               <Link
                 href="#"
-                className="block p-2 rounded shadow-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 hover:shadow-lg text-center text-white font-bold"
+                className={`block p-2 rounded shadow-xl text-center font-bold transition transform
+                ${
+                activeTab === "Student Form"
+                ? "scale-105 bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                : "bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 hover:shadow-lg text-white"
+                }`}
                 onClick={() => setActiveTab("Student Form")}
               >
                 Student Form
