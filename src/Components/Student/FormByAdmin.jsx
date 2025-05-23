@@ -9,6 +9,7 @@ const FormByAdmin = () => {
   const [newLabel, setNewLabel] = useState("");
   const [newValue, setNewValue] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
+  const [fileLabel, setFileLabel] = useState("");
 
   useEffect(() => {
     const fetchForm = async () => {
@@ -89,20 +90,8 @@ const FormByAdmin = () => {
   const addFileToFields = (e) => {
     e.preventDefault();
 
-    if (!selectedFile) {
-      Swal.fire({
-        icon: "warning",
-        title: "No file selected",
-        toast: true,
-        position: "top-end",
-        timer: 2000,
-        showConfirmButton: false,
-      });
-      return;
-    }
-
     const fileField = {
-      label: "Uploaded File",
+      label: `${fileLabel} `,
       value: selectedFile.name,
     };
 
@@ -262,6 +251,13 @@ const FormByAdmin = () => {
 
         {/* File Upload + Add File Button */}
         <div className="mb-4 flex items-center gap-4 p-2 flex-wrap">
+          <input
+            type="text"
+            placeholder="Enter New Label"
+            value={fileLabel}
+            onChange={(e) => setFileLabel(e.target.value)}
+            className="border border-gray-300 px-3 py-2 rounded flex-grow min-w-[120px]"
+          />
           <input
             type="file"
             id="fileInput"

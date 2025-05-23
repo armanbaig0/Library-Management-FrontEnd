@@ -30,6 +30,7 @@ const ManageBooks = () => {
 
   // Handle adding a new book
   const handleAddBook = async () => {
+   
     if (bookName.trim() !== '' && authorName.trim() !== '' && bookfile) {
       try {
         const formData = new FormData();
@@ -50,14 +51,18 @@ const ManageBooks = () => {
           setAuthorName('');
           setBookFile('');
 
+          document.getElementById("fileinput").value = "";
+
           await Swal.fire({
             toast: true,
             position: 'top-end',    // top-right corner
             icon: 'success',
-            title: 'Book Added',
+            title: `File "${bookfile}" added`,
             showConfirmButton: false,
             timer: 2000,            // 1 seconds
             timerProgressBar: true, // green line animation
+
+            
     });
         } else {
           alert(response.data.msg || 'Error adding book');
@@ -91,6 +96,7 @@ const ManageBooks = () => {
           <input
             type="file"
             name='file'
+            id='fileinput'
             accept='.pdf'
             onChange={(e) => setBookFile(e.target.files[0])}
             className="border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
