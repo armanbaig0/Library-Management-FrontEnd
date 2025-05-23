@@ -100,6 +100,7 @@ const FormByAdmin = () => {
 
     // Reset file input manually (controlled input workaround)
     document.getElementById("fileInput").value = "";
+    setFileLabel("");
 
     Swal.fire({
       toast: true,
@@ -253,7 +254,7 @@ const FormByAdmin = () => {
         <div className="mb-4 flex items-center gap-4 p-2 flex-wrap">
           <input
             type="text"
-            placeholder="Enter New Label"
+            placeholder="Enter File Label"
             value={fileLabel}
             onChange={(e) => setFileLabel(e.target.value)}
             className="border border-gray-300 px-3 py-2 rounded flex-grow min-w-[120px]"
@@ -262,7 +263,7 @@ const FormByAdmin = () => {
             type="file"
             id="fileInput"
             onChange={handleFileChange}
-            className="border border-gray-300 px-3 py-2 rounded"
+            className="border border-gray-300 px-3 py-2 rounded "
           />
           <button
             onClick={addFileToFields}
