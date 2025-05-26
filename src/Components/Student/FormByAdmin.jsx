@@ -182,7 +182,7 @@ const FormByAdmin = () => {
         <div className="p-2 grid grid-cols-2 mb-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
           {formFields.map((field, index) => (
             <div key={`form-${index}`} className="mb-4 border p-2">
-              <label className="block font-bold text-gray-700 mb-1">
+              <label className="block font-bold text-gray-700 mb-1 uppercase">
                 {field.label}
               </label>
               <input

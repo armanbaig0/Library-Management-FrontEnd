@@ -43,7 +43,7 @@ const AddInfo = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.put('http://localhost:5000/student/add-Info', formData, {
+      const res = await axios.post('http://localhost:5000/student/add-Info', formData, {
         withCredentials: true
       });
 
@@ -59,16 +59,16 @@ const AddInfo = () => {
 
   return (
     <div style={{ maxWidth: '600px', margin: 'auto', padding: '20px' }}>
-      <h2>Please Add Your Personal Information</h2>
+      <h2 className='font-bold text-center bg-white'>Your Personal Information</h2>
       {msg && <p style={{ color: 'green' }}>{msg}</p>}
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className=' p-2 bg-white grid grid-cols-2 mb-2 md:grid-cols-3 lg:grid-cols-4 gap-2  shadow-lg'>
         {/* Readonly fields */}
-        <h4>Already Available:</h4>
         {Object.entries(readonlyFields).map(([key, value]) => (
-          <div key={key} style={{ marginBottom: '10px' }}>
-            <label>{key}</label><br />
-            <input type="text" value={value} disabled />
+          <div className='border' key={key} style={{ marginBottom: '10px' }}>
+            <label className='font-bold uppercase' >{key}</label><br />
+            <input type="text" value={value} disabled 
+              className="w-full border border-gray-300 px-3 py-2 rounded bg-gray-100 cursor-not-allowed"/>
           </div>
         ))}
 
