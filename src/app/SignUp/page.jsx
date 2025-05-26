@@ -4,7 +4,7 @@ import { signupUser } from "./fetchApi";
 import { useFormik } from "formik";
 import signUpSchema from "./Signupschema";
 import Swal from "sweetalert2";
-import Loader from '../Components/Loader/Loader';
+import Loader from '../../Components/Loader/Loader';
 {
   /* Yup Validation using Schema */
 }

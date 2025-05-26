@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import AvailableBooks from "./AvailableBooks";
 import Notifications from "./Notifications";
+import AddInfo from './AddInfo'
 import Link from "next/link";
 import LogOut from "./LogOut";
 import FormByAdmin from "./FormByAdmin";
@@ -58,6 +59,15 @@ export default function StudentDashBoard() {
               <Link
                 href="#"
                 className="block p-2 rounded shadow-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 hover:shadow-lg text-center text-white font-bold"
+                onClick={() => setActiveTab("Add Information")}
+              >
+                Add Information
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#"
+                className="block p-2 rounded shadow-xl bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 hover:shadow-lg text-center text-white font-bold"
                 onClick={() => setActiveTab("Available Books")}
               >
                 Available Books
@@ -93,6 +103,7 @@ export default function StudentDashBoard() {
           </h1>
 
           {/* Conditional Rendering based on Active Tab */}
+          {activeTab === "Add Information" && <AddInfo />}
           {activeTab === "Available Books" && <AvailableBooks />}
           {activeTab === "Notifications" && <Notifications />}
           {activeTab === "Form" && <FormByAdmin />}
