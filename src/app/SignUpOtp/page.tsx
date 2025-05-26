@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { verifyOtp } from "./fetchapi";
 import otpSchema from "./SendOtpSchema";
 import { useRouter } from "next/navigation";
-import Loader from '../Components/Loader/Loader';
+import Loader from '../../Components/Loader/Loader';
 import Image from 'next/image';
 
 {/* Yup Validation */ }

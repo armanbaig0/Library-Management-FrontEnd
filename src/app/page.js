@@ -1,79 +1,52 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import Loader from "../Components/Loader/Loader";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Loader from "@/Components/Loader/Loader"; // assumes a small spinner
 
 export default function Home() {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
-  const [isLoad, setIsLoad] = useState(false);
+  const [loadingButton, setLoadingButton] = useState(null); // 'admin' or 'student'
 
-  const handleAdminClick = () => {
-    router.push("/Admin");
-    setIsLoading(true);
-  };
-  const handleStudentClick = () => {
-    router.push("/Student");
-    setIsLoad(true);
+  const handleClick = (path, role) => {
+    setLoadingButton(role);
+    setTimeout(() => {
+      router.push(path);
+    }, 1000); // optional delay to show loader
   };
 
   return (
-    <>
-      <div className="">
-        <div className="bg-blue-700">
-          <p> .. </p>
-        </div>
-        <div className="bg-blue-700">
-          <p> .. </p>
-        </div>
-        <div className="bg-blue-700">
-          <p> .. </p>
-        </div>
-        <div className="bg-blue-700">
-          <p> .. </p>
-        </div>
-      </div>
-
-      <div className="flex  justify-center items-center space-x-8">
-        <div className="">
+    <div
+      className="min-h-screen bg-cover bg-center flex items-center justify-center"
+      style={{
+        backgroundImage: "url('/Library.jpg')",
+      }}
+    >
+      <div className="bg-black bg-opacity-60 p-10 rounded-2xl text-center text-white shadow-2xl">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          Welcome to The Library
+        </h1>
+        <p className="mb-8 text-lg md:text-xl">
+          Manage your library efficiently with modern tools.
+        </p>
+        <div className="flex gap-6 justify-center">
           <button
-            type="submit"
-            disabled={isLoading}
-            onClick={handleAdminClick}
-            className="border font-bold hover:scale-105 bg-blue-700 text-white cursor-pointer"
+            onClick={() => handleClick("/Admin", "admin")}
+            className="relative flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
+            disabled={loadingButton === "admin"}
           >
-            {isLoading ? (
-              <>
-                <span className="flex items-center justify-center">
-                  <Loader />
-                </span>
-              </>
-            ) : (
-              "Admin"
-            )}
+            {loadingButton === "admin" ? <Loader size="sm" /> : "Admin Login"}
           </button>
-        </div>
 
-        <div>
           <button
-            type="submit"
-            disabled={isLoad}
-            onClick={handleStudentClick}
-            className="border font-bold hover:scale-105 bg-blue-700 text-white cursor-pointer"
+            onClick={() => handleClick("/Student", "student")}
+            className="relative flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
+            disabled={loadingButton === "student"}
           >
-            {isLoad ? (
-              <>
-                <span className="flex items-center justify-center">
-                  <Loader />
-                </span>
-              </>
-            ) : (
-              "Student"
-            )}
+            {loadingButton === "student" ? <Loader size="sm" /> : "Student Login"}
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }

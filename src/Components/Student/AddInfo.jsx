@@ -62,35 +62,36 @@ const AddInfo = () => {
       <h2 className='font-bold text-center bg-white'>Your Personal Information</h2>
       {msg && <p style={{ color: 'green' }}>{msg}</p>}
 
-      <form onSubmit={handleSubmit} className=' p-2 bg-white grid grid-cols-2 mb-2 md:grid-cols-3 lg:grid-cols-4 gap-2  shadow-lg'>
+      <form onSubmit={handleSubmit} className=' p-2 bg-white shadow-lg'>
         {/* Readonly fields */}
         {Object.entries(readonlyFields).map(([key, value]) => (
-          <div className='border' key={key} style={{ marginBottom: '10px' }}>
-            <label className='font-bold uppercase' >{key}</label><br />
+          <div key={key} style={{ marginBottom: '10px' }}>
+            <label className='font-bold capitalize' >{key}</label><br />
             <input type="text" value={value} disabled 
               className="w-full border border-gray-300 px-3 py-2 rounded bg-gray-100 cursor-not-allowed"/>
           </div>
         ))}
 
         {/* Editable fields */}
-        <h4>Missing Information:</h4>
+        <h4 className='font-bold'>Missing Information:</h4>
         {Object.entries(editableFields).map(([key]) => (
           <div key={key} style={{ marginBottom: '10px' }}>
-            <label>{key}</label><br />
+            <label className='font-bold capitalize'>{key}</label><br />
             <input
               type="text"
               name={key}
               value={formData[key] || ''}
               onChange={handleChange}
               required
+              className='w-full border border-gray-300 px-3 py-2 rounded '
             />
           </div>
         ))}
 
         {Object.keys(editableFields).length > 0 ? (
-          <button type="submit">Submit Info</button>
+          <button type="submit" className='cursor-pointer font-bold text-white bg-blue-500'>Submit Info</button>
         ) : (
-          <p>All your information is already filled.</p>
+          <p>All your information is Up to Date.</p>
         )}
       </form>
     </div>

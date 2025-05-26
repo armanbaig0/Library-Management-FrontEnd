@@ -21,7 +21,9 @@ export default function StudentDashBoard() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
+    <>
+     <header>
+      <div className="min-h-screen flex flex-col bg-gray-100">
       {/* Navbar */}
       <nav className=" shadow p-8 bg-gradient-to-r from-blue-500 to-purple-500 flex justify-between items-center">
         <button
@@ -54,7 +56,7 @@ export default function StudentDashBoard() {
             sidebarOpen ? "block" : "hidden"
           } md:block bg-white w-64 p-4 shadow-md`}
         >
-          <ul className="space-y-4">
+          <ul className="space-y-4 ">
             <li>
               <Link
                 href="#"
@@ -112,5 +114,8 @@ export default function StudentDashBoard() {
         </main>
       </div>
     </div>
+     </header>
+    </>
+    
   );
 }
