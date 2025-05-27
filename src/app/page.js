@@ -16,7 +16,16 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="overscroll-auto scroll-m-2">
+      {/* Header */}
+      <header className="bg-white shadow-md py-6 px-8 flex justify-between items-center">
+        <h1 className="text-3xl font-bold text-indigo-600">Library Management</h1>
+        <nav className="space-x-6">
+          <a href="#features" className="text-indigo-600 font-medium hover:underline">Features</a>
+          <a href="#about" className="text-indigo-600 font-medium hover:underline">About</a>
+          <a href="#contact" className="text-indigo-600 font-medium hover:underline">Contact</a>
+        </nav>
+      </header>
     <div
       className="min-h-screen bg-cover bg-center flex items-center justify-center"
       style={{
@@ -28,7 +37,7 @@ export default function Home() {
           Welcome to The Library
         </h1>
         <p className="mb-8 text-lg md:text-xl">
-          Manage your library efficiently with modern tools.
+          Choose From below to Login
         </p>
         <div className="flex gap-6 justify-center">
           <button
@@ -49,19 +58,9 @@ export default function Home() {
         </div>
       </div>
     </div>
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 flex flex-col">
-      {/* Header */}
-      <header className="bg-white shadow-md py-6 px-8 flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-indigo-600">LibraryX</h1>
-        <nav className="space-x-6">
-          <a href="#features" className="text-indigo-600 font-medium hover:underline">Features</a>
-          <a href="#about" className="text-indigo-600 font-medium hover:underline">About</a>
-          <a href="#contact" className="text-indigo-600 font-medium hover:underline">Contact</a>
-        </nav>
-      </header>
-
+    <div className="min-h-screen pt-2 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 flex flex-col">
       {/* Hero Section */}
-      <section className="flex-1 flex items-center justify-center text-center px-4">
+      <section className="flex-1 pt-2 pb-2 flex items-center justify-center text-center px-4">
         <div className="max-w-2xl">
           <h2 className="text-5xl font-bold text-gray-800 leading-tight mb-4">
             Manage Your Library Effortlessly
