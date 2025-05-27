@@ -53,7 +53,7 @@ const AddInfo = () => {
     }
   };
 
-  if (loading) return <div><span className="flex items-center justify-center">
+  if (loading) return <div> <span className="flex items-center justify-center">
                       <Loader />
                     </span></div>;
 
@@ -80,7 +80,7 @@ const AddInfo = () => {
             <input
               type="text"
               name={key}
-              value={formData[key] || ''}
+              value={formData[key] || ''}  
               onChange={handleChange}
               required
               className='w-full border border-gray-300 px-3 py-2 rounded '

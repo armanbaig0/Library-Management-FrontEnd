@@ -22,7 +22,7 @@ export default function Home() {
         backgroundImage: "url('/Library.jpg')",
       }}
     >
-      <div className="bg-black bg-opacity-60 p-10 rounded-2xl text-center text-white shadow-2xl">
+      <div className="bg-black  p-10 rounded-2xl text-center text-white shadow-2xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
           Welcome to The Library
         </h1>
@@ -32,7 +32,7 @@ export default function Home() {
         <div className="flex gap-6 justify-center">
           <button
             onClick={() => handleClick("/Admin", "admin")}
-            className="relative flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
+            className="relative cursor-pointer flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
             disabled={loadingButton === "admin"}
           >
             {loadingButton === "admin" ? <Loader size="sm" /> : "Admin Login"}
@@ -40,7 +40,7 @@ export default function Home() {
 
           <button
             onClick={() => handleClick("/Student", "student")}
-            className="relative flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
+            className="relative cursor-pointer flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
             disabled={loadingButton === "student"}
           >
             {loadingButton === "student" ? <Loader size="sm" /> : "Student Login"}
