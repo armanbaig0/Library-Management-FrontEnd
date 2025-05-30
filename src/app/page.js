@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Loader from "@/Components/Loader/Loader"; // assumes a small spinner
+import Loader from "@/Components/Loader/Loader"; 
 
 export default function Home() {
   const router = useRouter();
