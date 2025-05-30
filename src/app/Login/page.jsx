@@ -101,7 +101,7 @@ export default function Login() {
   }, []); // Empty dependency array to run only once when the component mounts
 
   return (
-    <div className="min-h-screen overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 px-2">
+    <div className="min-h-screen mix-blend-multiply overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 px-2">
       <div className="flex w-full max-w-3xl md:flex-row rounded-lg shadow-xl">
         {/* Login Form */}
         <div className="p-2 bg-gradient-to-br from-gray-50 to-gray-200 w-full rounded-lg">
@@ -221,7 +221,7 @@ export default function Login() {
             {/* Continue with google */}
             <button
               type="button"
-              className="w-full animate-pulse border border-gray-300 hover:bg-gray-100 text-gray-700 font-semibold rounded-lg flex items-center justify-center space-x-2 transition duration-300 cursor-pointer"
+              className="w-full transform hover:-translate-y-2 animate-pulse border border-gray-300 hover:bg-gray-100 text-gray-700 font-semibold rounded-lg flex items-center justify-center space-x-2 transition duration-300 cursor-pointer"
             >
               <img
                 src="https://www.svgrepo.com/show/475656/google-color.svg"
