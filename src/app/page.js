@@ -56,6 +56,16 @@ export default function Home() {
             {loadingButton === "student" ? <Loader size="sm" /> : "Student Login"}
           </button>
         </div>
+          <p>Or SignUp Below</p>
+        <div>
+          <button
+            onClick={() => handleClick("/SignUp", "Signup")}
+            className="relative cursor-pointer flex items-center justify-center bg-gradient-to-r from-aqua-600 to-emerald-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-transform transform hover:scale-105"
+            disabled={loadingButton === "student"}
+          >
+            {loadingButton === "Signup" ? <Loader size="sm" /> : "SignUp"}
+          </button>
+        </div>
       </div>
     </div>
     <div className="min-h-screen pt-2 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 flex flex-col">
