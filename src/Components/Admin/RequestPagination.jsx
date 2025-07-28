@@ -22,7 +22,7 @@ const RequestPagination = ({ bookReq, onRequestsUpdate }) => {
   const handleRequestAction = async (request_id, action) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/admin/handle-request",
+        "https://library-management-rqkq.onrender.com/admin/handle-request",
         {
           request_id,
           action,
@@ -43,7 +43,7 @@ const RequestPagination = ({ bookReq, onRequestsUpdate }) => {
         // Refresh requests
         if (onRequestsUpdate) {
           const updatedRequests = await axios.get(
-            "http://localhost:5000/admin/get-req"
+            "https://library-management-rqkq.onrender.com/admin/get-req"
           );
           if (updatedRequests.data.success) {
             onRequestsUpdate(updatedRequests.data.request);

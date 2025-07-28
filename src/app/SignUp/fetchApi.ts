@@ -6,7 +6,7 @@ export const signupUser = async (formData: {
     password: string;
   }) => {
     try {
-      const res = await fetch("http://localhost:5000/user/signup", {
+      const res = await fetch("https://library-management-rqkq.onrender.com/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

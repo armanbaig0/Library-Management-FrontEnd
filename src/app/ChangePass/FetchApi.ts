@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const ChangePass = async (email: string, new_password: string) => {
   try {
-    const response = await axios.post("http://localhost:5000/user/ChangePass", {
+    const response = await axios.post("https://library-management-rqkq.onrender.com/user/ChangePass", {
       email,
       new_password,
     });

@@ -14,7 +14,7 @@ const Notifications = () => {
   const fetchNotifications = async () => {
     try {
       const studentName = Cookies.get('userFullname');  
-      const response = await axios.get('http://localhost:5000/student/request-status', {
+      const response = await axios.get('https://library-management-rqkq.onrender.com/student/request-status', {
         params: { student_name: studentName }
       });
       if (response.data.success) {

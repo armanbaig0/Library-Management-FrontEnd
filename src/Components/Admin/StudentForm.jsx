@@ -23,7 +23,7 @@ const StudentForm = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/admin/make-Form", {
+      const res = await fetch("https://library-management-rqkq.onrender.com/admin/make-Form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

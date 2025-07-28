@@ -14,7 +14,7 @@ const ManageBooks = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/student/get-books'); 
+        const response = await axios.get('https://library-management-rqkq.onrender.com/student/get-books'); 
         if (response.data.success) {
           setBooks(response.data.books);
         } else {
@@ -38,7 +38,7 @@ const ManageBooks = () => {
         formData.append('book_author', authorName);
         formData.append('pdf', bookfile);
 
-        const response = await axios.post('http://localhost:5000/admin/add-books', formData, {
+        const response = await axios.post('https://library-management-rqkq.onrender.com/admin/add-books', formData, {
           headers:{
             'Content-Type' : 'multipart/form-data',
           },

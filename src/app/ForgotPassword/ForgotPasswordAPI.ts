@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const forgotPassword = async (email: string,) => {
   try {
-    const response = await axios.post("http://localhost:5000/user/forgot-password", {
+    const response = await axios.post("https://library-management-rqkq.onrender.com/user/forgot-password", {
       email,
     });
 

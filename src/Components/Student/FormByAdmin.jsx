@@ -14,7 +14,7 @@ const FormByAdmin = () => {
   useEffect(() => {
     const fetchForm = async () => {
       try {
-        const res = await fetch("http://localhost:5000/student/get-Form", {
+        const res = await fetch("https://library-management-rqkq.onrender.com/student/get-Form", {
           credentials: "include",
         });
         if (!res.ok) {
@@ -132,7 +132,7 @@ const FormByAdmin = () => {
 
     // Sending JSON assuming only names, no actual file upload
     try {
-      const res = await fetch("http://localhost:5000/student/submit-Form", {
+      const res = await fetch("https://library-management-rqkq.onrender.com/student/submit-Form", {
         method: "POST",
         credentials: "include",
         headers: {

@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const forgotOtp = async (email: string, otp: string) => {
   try {
-    const response = await axios.post("http://localhost:5000/user/forgot-verify", {
+    const response = await axios.post("https://library-management-rqkq.onrender.com/user/forgot-verify", {
       email,
       otp,
     });

@@ -15,7 +15,7 @@ const AddInfo = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/student/get-Info', {
+        const res = await axios.get('https://library-management-rqkq.onrender.com/student/get-Info', {
           withCredentials: true 
         });
 
@@ -43,7 +43,7 @@ const AddInfo = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5000/student/add-Info', formData, {
+      const res = await axios.post('https://library-management-rqkq.onrender.com/student/add-Info', formData, {
         withCredentials: true
       });
 

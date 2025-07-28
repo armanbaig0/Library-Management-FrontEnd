@@ -13,7 +13,7 @@ const AvailableBooks = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/student/get-books');
+        const response = await axios.get('https://library-management-rqkq.onrender.com/student/get-books');
         if (response.data.success) {
           setBooks(response.data.books);
         } else {

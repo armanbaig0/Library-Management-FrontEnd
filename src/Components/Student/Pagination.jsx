@@ -18,7 +18,7 @@ const PaginationUI = ({ books, onBooksUpdate }) => {
 
   const handleRequest = async (book_name, book_author) => {
     try {
-      const response = await axios.post('http://localhost:5000/student/req-book', {
+      const response = await axios.post('https://library-management-rqkq.onrender.com/student/req-book', {
         student_name: studentName,
         book_name,
         book_author,
@@ -62,7 +62,7 @@ const PaginationUI = ({ books, onBooksUpdate }) => {
   useEffect(() => {
     const fetchRequestStatuses = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/student/request-status', {
+        const response = await axios.get('https://library-management-rqkq.onrender.com/student/request-status', {
           params: { student_name: studentName }
         });
   

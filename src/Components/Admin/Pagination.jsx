@@ -16,7 +16,7 @@ const PaginationUI = ({ books, setBooks }) => {
   const handleDelete = async (book) => {
     try {
       const response = await axios.delete(
-        "http://localhost:5000/admin/del-book",
+        "https://library-management-rqkq.onrender.com/admin/del-book",
         {
           data: {
             book_id: book.book_id,

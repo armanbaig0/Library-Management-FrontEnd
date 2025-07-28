@@ -11,7 +11,7 @@ import Swal from "sweetalert2"
   useEffect(() => {
    const fetchRequests = async () => {
      try {
-       const response = await axios.get('http://localhost:5000/admin/get-req');
+       const response = await axios.get('https://library-management-rqkq.onrender.com/admin/get-req');
        if (response.data.success) {
          setBookReq(response.data.request);
        } else {

@@ -9,7 +9,7 @@ const LogOut = () => {
 
   const handleLogout = async () => {
     try {
-        await axios.post('http://localhost:5000/user/logout', { withCredentials: true });
+        await axios.post('https://library-management-rqkq.onrender.com/user/logout', { withCredentials: true });
         // call your logout API
         Cookies.remove('token');
         Cookies.remove('role');
